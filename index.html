@@ -120,7 +120,7 @@
             margin-bottom: 15px;
         }
 
-        /* CARD LIST */
+        /* CARD LIST & BANNERS */
         .card {
             background: #18181c;
             border-radius: 12px;
@@ -130,7 +130,7 @@
         }
         .card-banner-banana {
             width: 100%;
-            height: 180px;
+            height: 140px;
             background: linear-gradient(135deg, #1e3c72, #2a5298);
             display: flex;
             align-items: center;
@@ -142,8 +142,20 @@
         }
         .card-banner-milk {
             width: 100%;
-            height: 180px;
+            height: 140px;
             background: linear-gradient(135deg, #2b5876, #4e4376);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+        }
+        .card-banner-mainstreet {
+            width: 100%;
+            height: 140px;
+            background: linear-gradient(135deg, #7c3aed, #db2777);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -168,58 +180,24 @@
             font-size: 12px;
             color: #aaa;
         }
-        .view-btn {
-            color: #ff9800;
-            text-decoration: none;
-            font-weight: bold;
-            cursor: pointer;
-            background: transparent;
-            border: none;
-            font-size: 12px;
-        }
-
-        /* PAGES CONTROL */
-        .page-content {
-            display: none;
-        }
-        .page-content.active {
-            display: block;
-        }
-
-        .back-btn {
-            display: inline-block;
-            color: #aaa;
-            text-decoration: none;
-            margin-bottom: 15px;
-            font-size: 14px;
-            cursor: pointer;
-            background: transparent;
-            border: none;
-        }
-        .detail-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            line-height: 1.4;
-        }
         .get-script-btn {
             width: 100%;
-            padding: 14px;
+            padding: 12px;
             background: linear-gradient(90deg, #d87000, #b35900);
             color: white;
             border: none;
-            border-radius: 25px;
-            font-size: 16px;
+            border-radius: 20px;
+            font-size: 14px;
             font-weight: bold;
             cursor: pointer;
-            margin-top: 15px;
+            margin-top: 10px;
             box-shadow: 0 4px 12px rgba(216, 112, 0, 0.3);
         }
 
         /* SCRIPT DISPLAY AREA */
         .script-box-container {
             display: none;
-            margin-top: 15px;
+            margin-top: 12px;
             background: #121215;
             padding: 12px;
             border-radius: 8px;
@@ -235,7 +213,7 @@
             white-space: pre-wrap;
             word-break: break-all;
             margin-bottom: 10px;
-            max-height: 180px;
+            max-height: 160px;
             overflow-y: auto;
         }
         .copy-btn {
@@ -263,229 +241,256 @@
         <div class="menu-icon">☰</div>
     </div>
 
-    <!-- TRANG 1: DANH SÁCH GAME (HOME) -->
-    <div id="homePage" class="page-content active">
-        <div class="hero-section">
-            <div class="hero-subtitle">FAST AND OP ROBLOX SCRIPTS</div>
-            <div class="hero-title">SCRIPT HUB</div>
-            <div class="hero-desc">Free Roblox scripts, updated regularly. Find one, hit Get Script, and you're set.</div>
-        </div>
-
-        <div class="search-box" style="margin-top: 20px;">
-            <input type="text" class="search-input" placeholder="Search scripts...">
-            <button class="search-btn">Search</button>
-        </div>
-        <div class="script-count">2 scripts available</div>
-
-        <!-- Card Game 1: Banana -->
-        <div class="card">
-            <div class="card-banner-banana">🍌 AVL: THE SHOW 2</div>
-            <div class="card-content">
-                <div class="card-title">[FREE UGC] AVL: The Show 2 OP Script (Auto Farm Bananas)</div>
-                <div class="card-footer">
-                    <span>122 views</span>
-                    <button class="view-btn" onclick="openDetail('bananaPage')">View script →</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Card Game 2: MilkXP -->
-        <div class="card">
-            <div class="card-banner-milk">🥛 MILKXP AUTO CLAIM</div>
-            <div class="card-content">
-                <div class="card-title">[FREE UGC] MilkXP Auto Claim & Server Time Synced Tracker</div>
-                <div class="card-footer">
-                    <span>254 views</span>
-                    <button class="view-btn" onclick="openDetail('milkPage')">View script →</button>
-                </div>
-            </div>
-        </div>
+    <!-- HERO SECTION -->
+    <div class="hero-section">
+        <div class="hero-subtitle">FAST AND OP ROBLOX SCRIPTS</div>
+        <div class="hero-title">SCRIPT HUB</div>
+        <div class="hero-desc">Free Roblox scripts, updated regularly. Find one, hit Get Script, and you're set.</div>
     </div>
 
-    <!-- TRANG CHI TIẾT 1: BANANA SCRIPT -->
-    <div id="bananaPage" class="page-content">
-        <button class="back-btn" onclick="openHome()">← Back to all scripts</button>
-        <div class="detail-title">[FREE UGC] AVL: The Show 2 OP Script (Auto Farm Bananas)</div>
-        <div class="card-banner-banana" style="border-radius: 12px; height: 140px;">🍌 AVL: THE SHOW 2</div>
-        <button class="get-script-btn" onclick="toggleScriptBox('bananaScriptBox')">🔒 Get Script ➔</button>
+    <!-- SEARCH BOX -->
+    <div class="search-box">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search scripts...">
+        <button class="search-btn" onclick="filterScripts()">Search</button>
+    </div>
+    <div class="script-count" id="scriptCount">3 scripts available</div>
 
-        <div class="script-box-container" id="bananaScriptBox">
-            <p style="font-size: 12px; color: #aaa; margin-bottom: 6px;">Mã Script Roblox của bạn:</p>
-            <div class="code-box" id="bananaCode">loadstring([[
+    <!-- CARD 1: BANANA SCRIPT -->
+    <div class="card">
+        <div class="card-banner-banana">🍌 AVL: THE SHOW 2</div>
+        <div class="card-content">
+            <div class="card-title">[FREE UGC] AVL: The Show 2 OP Script (Auto Farm Bananas)</div>
+            <div class="card-footer">
+                <span>122 views</span>
+            </div>
+            <button class="get-script-btn" onclick="toggleScriptBox('bananaScriptBox')">🔒 Get Script ➔</button>
+            <div class="script-box-container" id="bananaScriptBox">
+                <div class="code-box" id="bananaCode">loadstring([[
 local p = game:GetService("Players").LocalPlayer
 local c = {}
-
 local function r()
     local ch = p.Character or p.CharacterAdded:Wait()
     local h = ch:WaitForChild("HumanoidRootPart", 5)
     local hu = ch:WaitForChild("Humanoid", 5)
-    
     if not h or not hu then return end
-
     for _, o in ipairs(workspace:GetDescendants()) do
         if o.Name:lower():find("banana") and not c[o] then
             if hu.Health <= 0 then break end
-            
             local t = o:IsA("BasePart") and o.CFrame or (o:IsA("Model") and o.PrimaryPart and o.PrimaryPart.CFrame)
             if t then
                 h.CFrame = t + Vector3.new(0, 2.5, 0)
                 task.wait(0.6)
-                
                 local pr = o:FindFirstChildOfClass("ProximityPrompt") or (o.Parent and o.Parent:FindFirstChildOfClass("ProximityPrompt"))
-                if pr then
-                    fireproximityprompt(pr)
-                end
-                
-                if o:IsA("BasePart") then
-                    firetouchinterest(h, o, 0)
-                    firetouchinterest(h, o, 1)
-                end
-                
+                if pr then fireproximityprompt(pr) end
+                if o:IsA("BasePart") then firetouchinterest(h, o, 0) firetouchinterest(h, o, 1) end
                 c[o] = true
                 task.wait(0.4)
             end
         end
     end
 end
-
-p.CharacterAdded:Connect(function()
-    task.wait(2)
-    task.spawn(r)
-end)
-
+p.CharacterAdded:Connect(function() task.wait(2) task.spawn(r) end)
 task.spawn(r)
 ]])()</div>
-            <button class="copy-btn" onclick="copyCode('bananaCode')">📋 Copy Script</button>
+                <button class="copy-btn" onclick="copyCode('bananaCode')">📋 Copy Script</button>
+            </div>
         </div>
     </div>
 
-    <!-- TRANG CHI TIẾT 2: MILKXP SCRIPT -->
-    <div id="milkPage" class="page-content">
-        <button class="back-btn" onclick="openHome()">← Back to all scripts</button>
-        <div class="detail-title">[FREE UGC] MilkXP Auto Claim & Server Time Synced Tracker</div>
-        <div class="card-banner-milk" style="border-radius: 12px; height: 140px;">🥛 MILKXP AUTO CLAIM</div>
-        <button class="get-script-btn" onclick="toggleScriptBox('milkScriptBox')">🔒 Get Script ➔</button>
-
-        <div class="script-box-container" id="milkScriptBox">
-            <p style="font-size: 12px; color: #aaa; margin-bottom: 6px;">Mã Script Roblox của bạn:</p>
-            <div class="code-box" id="milkCode">loadstring([[
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
+    <!-- CARD 2: MILKXP SCRIPT -->
+    <div class="card">
+        <div class="card-banner-milk">🥛 MILKXP AUTO CLAIM</div>
+        <div class="card-content">
+            <div class="card-title">[FREE UGC] MilkXP Auto Farm & Auto Continue/Claim</div>
+            <div class="card-footer">
+                <span>254 views</span>
+            </div>
+            <button class="get-script-btn" onclick="toggleScriptBox('milkScriptBox')">🔒 Get Script ➔</button>
+            <div class="script-box-container" id="milkScriptBox">
+                <div class="code-box" id="milkCode">loadstring([[
 local Players = game:GetService("Players")
+local Workspace = game:GetService("Workspace")
+local RunService = game:GetService("RunService")
+local VirtualInputManager = game:GetService("VirtualInputManager")
 local LocalPlayer = Players.LocalPlayer
-local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
-local SyncedTime = ReplicatedStorage.Modules.TweenServicePlus.SyncedTime.DelayedRequestEvent
 
-local ScreenGui = Instance.new("ScreenGui")
-local MainFrame = Instance.new("Frame")
-local Title = Instance.new("TextLabel")
-local CountdownLabel = Instance.new("TextLabel")
+_G.AutoMilkXP = true
 
-ScreenGui.Parent = game:GetService("CoreGui") or PlayerGui
-ScreenGui.Name = "MilkXPHourlyTracker"
-
-MainFrame.Parent = ScreenGui
-MainFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-MainFrame.Position = UDim2.new(0.05, 0, 0.25, 0)
-MainFrame.Size = UDim2.new(0, 240, 0, 90)
-MainFrame.Active = true
-MainFrame.Draggable = true
-
-Title.Parent = MainFrame
-Title.Size = UDim2.new(1, 0, 0, 30)
-Title.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
-Title.Text = "STOCK RESET IN (HOURLY)"
-Title.TextColor3 = Color3.fromRGB(255, 255, 255)
-Title.TextSize = 11
-
-CountdownLabel.Parent = MainFrame
-CountdownLabel.Position = UDim2.new(0, 5, 0, 35)
-CountdownLabel.Size = UDim2.new(1, -10, 0, 45)
-CountdownLabel.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-CountdownLabel.Text = "Reset in: --:--"
-CountdownLabel.TextColor3 = Color3.fromRGB(0, 255, 200)
-CountdownLabel.TextSize = 14
-
-local mt = getrawmetatable(game)
-local oldNamecall = mt.__namecall
-setreadonly(mt, false)
-
-mt.__namecall = newcclosure(function(self, ...)
-    local method = getnamecallmethod()
-    if method == "PromptPurchase" or method == "PromptProductPurchase" or method == "PromptPurchaseRequested" then
+local noclipConnection
+noclipConnection = RunService.Stepped:Connect(function()
+    if not _G.AutoMilkXP then
+        if noclipConnection then noclipConnection:Disconnect() end
         return
     end
-    return oldNamecall(self, ...)
+    local character = LocalPlayer.Character
+    if character then
+        for _, part in ipairs(character:GetDescendants()) do
+            if part:IsA("BasePart") then part.CanCollide = false end
+        end
+    end
 end)
-setreadonly(mt, true)
 
-local function triggerClaim()
-    for _, item in ipairs(PlayerGui:GetDescendants()) do
-        if (item:IsA("TextButton") or item:IsA("ImageButton")) and item.Visible then
-            local text = item:IsA("TextButton") and item.Text:lower() or ""
-            local name = item.Name:lower()
+local function safeTeleport(targetCF)
+    local character = LocalPlayer.Character
+    local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+    local humanoid = character and character:FindFirstChildOfClass("Humanoid")
+    if rootPart and humanoid and humanoid.Health > 0 then
+        rootPart.CFrame = targetCF
+        rootPart.Velocity = Vector3.new(0, 0, 0)
+    end
+end
 
-            if text:find("claim") or name:find("claim") or text:find("reward") or name:find("reward") then
-                pcall(function()
-                    for _, conn in ipairs(getconnections(item.MouseButton1Click)) do conn:Fire() end
-                    for _, conn in ipairs(getconnections(item.Activated)) do conn:Fire() end
-                end)
+local function autoClickContinue()
+    local playerGui = LocalPlayer:FindFirstChild("PlayerGui")
+    if not playerGui then return end
+    local startTime = tick()
+    while tick() - startTime < 3.5 do
+        if not _G.AutoMilkXP then break end
+        local clickedAny = false
+        for _, gui in ipairs(playerGui:GetDescendants()) do
+            if (gui:IsA("TextButton") or gui:IsA("ImageButton")) and gui.Visible and gui.AbsoluteSize.X > 0 then
+                local btnText = (gui:IsA("TextButton") and gui.Text) or gui.Name
+                if string.find(string.lower(btnText), "continue") or string.find(string.lower(gui.Name), "continue") then
+                    pcall(function()
+                        for _, conn in ipairs(getconnections(gui.MouseButton1Click)) do conn:Fire() end
+                        for _, conn in ipairs(getconnections(gui.Activated)) do conn:Fire() end
+                    end)
+                    clickedAny = true
+                end
+            end
+        end
+        task.wait(0.25)
+        if not clickedAny and (tick() - startTime > 1) then break end
+    end
+end
+
+local function getItemPrompt(itemObj)
+    if not itemObj or not itemObj.Parent then return nil end
+    for _, prompt in ipairs(itemObj:GetDescendants()) do
+        if prompt:IsA("ProximityPrompt") and prompt.Enabled then return prompt end
+    end
+    return nil
+end
+
+task.spawn(function()
+    while task.wait(0.4) do
+        if _G.AutoMilkXP then
+            pcall(function()
+                local character = LocalPlayer.Character
+                local humanoidRootPart = character and character:FindFirstChild("HumanoidRootPart")
+                if humanoidRootPart then
+                    local itemSpawns = Workspace:FindFirstChild("ItemSpawns")
+                    local cashNPCs = Workspace:FindFirstChild("CashNPCs")
+                    if itemSpawns then
+                        for _, spawnFolder in ipairs(itemSpawns:GetChildren()) do
+                            if not _G.AutoMilkXP then break end
+                            local itemObj = spawnFolder:FindFirstChild("Item")
+                            local prompt = getItemPrompt(itemObj)
+                            if itemObj and prompt then
+                                local targetPart = itemObj:FindFirstChild("Outline") or itemObj:IsA("BasePart") and itemObj or itemObj:FindFirstChildWhichIsA("BasePart", true)
+                                if targetPart and targetPart.Transparency < 0.9 then
+                                    safeTeleport(targetPart.CFrame + Vector3.new(0, 1, 0))
+                                    task.wait(0.25)
+                                    pcall(function() fireproximityprompt(prompt) end)
+                                    task.wait(0.35)
+                                    if cashNPCs then
+                                        for _, npc in ipairs(cashNPCs:GetChildren()) do
+                                            if not _G.AutoMilkXP then break end
+                                            local npcPart = npc:IsA("BasePart") and npc or npc:FindFirstChild("HumanoidRootPart") or npc:FindFirstChild("Head") or npc:FindFirstChildWhichIsA("BasePart", true)
+                                            if npcPart then
+                                                safeTeleport(npcPart.CFrame + Vector3.new(0, 1.5, 2.5))
+                                                task.wait(0.35)
+                                                for _, npcPrompt in ipairs(npc:GetDescendants()) do
+                                                    if npcPrompt:IsA("ProximityPrompt") and npcPrompt.Enabled then pcall(function() fireproximityprompt(npcPrompt) end) end
+                                                end
+                                                autoClickContinue()
+                                                task.wait(0.5)
+                                            end
+                                        end
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end)
+        end
+    end
+end)
+]])()</div>
+                <button class="copy-btn" onclick="copyCode('milkCode')">📋 Copy Script</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CARD 3: MAIN STREET RP SCRIPT -->
+    <div class="card">
+        <div class="card-banner-mainstreet">🌆 MAIN STREET RP</div>
+        <div class="card-content">
+            <div class="card-title">[TAMAGOTCHI] Main Street RP Auto Collect Shards</div>
+            <div class="card-footer">
+                <span>310 views</span>
+            </div>
+            <button class="get-script-btn" onclick="toggleScriptBox('mainstreetScriptBox')">🔒 Get Script ➔</button>
+            <div class="script-box-container" id="mainstreetScriptBox">
+                <div class="code-box" id="mainstreetCode">loadstring([[
+local Players = game:GetService("Players")
+local Workspace = game:GetService("Workspace")
+local LocalPlayer = Players.LocalPlayer
+
+_G.AutoShard = true
+
+local function fireTouch(part)
+    if part and part:IsA("BasePart") then
+        local character = LocalPlayer.Character
+        local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+        if rootPart then
+            rootPart.CFrame = part.CFrame
+            if firetouchinterest then
+                firetouchinterest(rootPart, part, 0)
+                task.wait()
+                firetouchinterest(rootPart, part, 1)
             end
         end
     end
 end
 
 task.spawn(function()
-    while true do
-        local now = os.time()
-        local remainingInHour = 3600 - (now % 3600)
-
-        local mins = math.floor(remainingInHour / 60)
-        local secs = remainingInHour % 60
-
-        if remainingInHour <= 2 or remainingInHour >= 3598 then
-            CountdownLabel.TextColor3 = Color3.fromRGB(255, 50, 50)
-            CountdownLabel.Text = "RESET STOCK! DANG CLAIM..."
-            for i = 1, 5 do
-                triggerClaim()
-                task.wait(0.05)
-            end
-        else
-            CountdownLabel.TextColor3 = Color3.fromRGB(0, 255, 200)
-            CountdownLabel.Text = string.format("Reset in: %02d:%02d", mins, secs)
+    while task.wait(0.3) do
+        if _G.AutoShard then
+            pcall(function()
+                local character = LocalPlayer.Character
+                local humanoidRootPart = character and character:FindFirstChild("HumanoidRootPart")
+                local humanoid = character and character:FindFirstChildOfClass("Humanoid")
+                if humanoidRootPart and humanoid and humanoid.Health > 0 then
+                    local tamagotchi = Workspace:FindFirstChild("Tamagotchi")
+                    local shardsFolder = tamagotchi and tamagotchi:FindFirstChild("Shards")
+                    if shardsFolder me
+                        for _, shardModel in pairs(shardsFolder:GetChildren()) do
+                            local targetPart = shardModel:FindFirstChildWhichIsA("BasePart", true)
+                            if targetPart and _G.AutoShard then
+                                fireTouch(targetPart)
+                                task.wait(0.1)
+                            end
+                        end
+                    end
+                end
+            end)
         end
-
-        task.wait(0.2)
     end
 end)
 ]])()</div>
-            <button class="copy-btn" onclick="copyCode('milkCode')">📋 Copy Script</button>
+                <button class="copy-btn" onclick="copyCode('mainstreetCode')">📋 Copy Script</button>
+            </div>
         </div>
     </div>
 
 </div>
 
 <script>
-    function openDetail(pageId) {
-        document.querySelectorAll('.page-content').forEach(el => el.classList.remove('active'));
-        document.getElementById(pageId).classList.add('active');
-        window.scrollTo(0, 0);
-    }
-
-    function openHome() {
-        document.querySelectorAll('.page-content').forEach(el => el.classList.remove('active'));
-        document.getElementById('homePage').classList.add('active');
-        document.getElementById('bananaScriptBox').style.display = "none";
-        document.getElementById('milkScriptBox').style.display = "none";
-        window.scrollTo(0, 0);
-    }
-
     function toggleScriptBox(boxId) {
         var box = document.getElementById(boxId);
-        if (box.style.display === "block") {
-            box.style.display = "none";
-        } else {
-            box.style.display = "block";
-        }
+        box.style.display = (box.style.display === "block") ? "none" : "block";
     }
 
     function copyCode(codeId) {
@@ -496,6 +501,34 @@ end)
             alert("Lỗi khi copy: " + err);
         });
     }
+
+    function filterScripts() {
+        var input = document.getElementById("searchInput").value.toLowerCase().trim();
+        var cards = document.querySelectorAll(".card");
+        var visibleCount = 0;
+
+        cards.forEach(function(card) {
+            var titleText = card.querySelector(".card-title").innerText.toLowerCase();
+            var bannerText = card.querySelector("[class^='card-banner']").innerText.toLowerCase();
+            
+            if (titleText.includes(input) || bannerText.includes(input)) {
+                card.style.display = "block";
+                visibleCount++;
+            } else {
+                card.style.display = "none";
+            }
+        });
+
+        document.getElementById("scriptCount").innerText = visibleCount + " scripts available";
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        var searchInput = document.getElementById("searchInput");
+        if (searchInput) {
+            searchInput.addEventListener("keyup", filterScripts);
+        }
+    });
 </script>
 
-</body>.
+</body>
+</html>
