@@ -188,6 +188,18 @@
             color: #fff;
             text-shadow: 0 2px 4px rgba(0,0,0,0.6);
         }
+        .card-banner-hatch {
+            width: 100%;
+            height: 140px;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+        }
         .card-content {
             padding: 15px;
         }
@@ -277,7 +289,7 @@
         <input type="text" id="searchInput" class="search-input" placeholder="Search scripts...">
         <button class="search-btn" onclick="filterScripts()">Search</button>
     </div>
-    <div class="script-count" id="scriptCount">5 scripts available</div>
+    <div class="script-count" id="scriptCount">6 scripts available</div>
 
     <!-- CARD 1: BANANA SCRIPT -->
     <div class="card">
@@ -509,7 +521,7 @@ end)
         </div>
     </div>
 
-    <!-- CARD 4: SUNSILK SCRIPT INSTANT 3 UGC (NEW) -->
+    <!-- CARD 4: SUNSILK SCRIPT INSTANT 3 UGC -->
     <div class="card">
         <div class="card-banner-sunsilk">🧴 SUNSILK LAB TYCOON</div>
         <div class="card-content">
@@ -520,7 +532,6 @@ end)
             <button class="get-script-btn" onclick="toggleScriptBox('sunsilkScriptBox')">🔒 Get Script ➔</button>
             <div class="script-box-container" id="sunsilkScriptBox">
                 <div class="code-box" id="sunsilkCode">loadstring([[
--- Sunsilk Script Instant 3 UGC (All-in-One Pro Edition)
 local CoreGui = game:GetService("CoreGui")
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -670,7 +681,7 @@ end)
         </div>
     </div>
 
-    <!-- CARD 5: OBBY UGC SCRIPT (NEW - UPDATED NAME) -->
+    <!-- CARD 5: OBBY UGC SCRIPT -->
     <div class="card">
         <div class="card-banner-obby">⚡ OBBY UGC (KHỐI BẠC)</div>
         <div class="card-content">
@@ -774,6 +785,60 @@ end)
 bClose.MouseButton1Click:Connect(function() ScreenGui:Destroy() end)
 ]])()</div>
                 <button class="copy-btn" onclick="copyCode('obbyCode')">📋 Copy Script</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CARD 6: THE HATCH INSTANT UGC SCRIPT (NEW) -->
+    <div class="card">
+        <div class="card-banner-hatch">🥚 THE HATCH INSTANT UGC</div>
+        <div class="card-content">
+            <div class="card-title">[THE HATCH] Instant UGC Script & TP to FinaleUGC</div>
+            <div class="card-footer">
+                <span>95 views</span>
+            </div>
+            <button class="get-script-btn" onclick="toggleScriptBox('hatchScriptBox')">🔒 Get Script ➔</button>
+            <div class="script-box-container" id="hatchScriptBox">
+                <div class="code-box" id="hatchCode">loadstring([[
+pcall(function() game:GetService("CoreGui").TheHatchInstantUGCScript:Destroy() end)
+local gui = Instance.new("ScreenGui", game:GetService("CoreGui"))
+gui.Name = "The hatch instant ugc script"
+
+local btn = Instance.new("TextButton", gui)
+btn.Size = UDim2.new(0, 220, 0, 50)
+btn.Position = UDim2.new(0.05, 0, 0.1, 0)
+btn.BackgroundColor3 = Color3.fromRGB(20, 20, 25)
+btn.TextColor3 = Color3.fromRGB(0, 255, 128)
+btn.TextSize, btn.Font = 12, Enum.Font.Code
+btn.Text = "⚡ TP: FinaleUGC ⚡"
+btn.Active, btn.Draggable = true, true
+
+Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 8)
+
+local plr = game:GetService("Players").LocalPlayer
+btn.MouseButton1Click:Connect(function()
+    pcall(function()
+        local hrp = plr.Character.HumanoidRootPart
+        local target = workspace:FindFirstChild("FinaleController") and workspace.FinaleController:FindFirstChild("FinaleUGC")
+        
+        if target then
+            local p = target:IsA("BasePart") and target or target:FindFirstChildWhichIsA("BasePart", true)
+            if p then
+                hrp.CFrame = p.CFrame + Vector3.new(0, 3, 0)
+                for _, pr in ipairs(target:GetDescendants()) do
+                    if pr:IsA("ProximityPrompt") then firesignal(pr.Triggered) end
+                end
+                print("[The Hatch]: Đã tele tới FinaleUGC thành công!")
+            else
+                print("[The Hatch]: Tìm thấy FinaleUGC nhưng không có Part để tele!")
+            end
+        else
+            print("[The Hatch]: Không tìm thấy đường dẫn workspace.FinaleController.FinaleUGC!")
+        end
+    end)
+end)
+]])()</div>
+                <button class="copy-btn" onclick="copyCode('hatchCode')">📋 Copy Script</button>
             </div>
         </div>
     </div>
