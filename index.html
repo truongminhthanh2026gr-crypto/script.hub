@@ -423,7 +423,7 @@ end)
         </div>
     </div>
 
-    <!-- CARD 3: MAIN STREET RP SCRIPT -->
+    <!-- CARD 3: MAIN STREET RP SCRIPT (ĐÃ SỬA LỖI) -->
     <div class="card">
         <div class="card-banner-mainstreet">🌆 MAIN STREET RP</div>
         <div class="card-content">
@@ -465,7 +465,7 @@ task.spawn(function()
                 if humanoidRootPart and humanoid and humanoid.Health > 0 then
                     local tamagotchi = Workspace:FindFirstChild("Tamagotchi")
                     local shardsFolder = tamagotchi and tamagotchi:FindFirstChild("Shards")
-                    if shardsFolder me
+                    if shardsFolder then
                         for _, shardModel in pairs(shardsFolder:GetChildren()) do
                             local targetPart = shardModel:FindFirstChildWhichIsA("BasePart", true)
                             if targetPart and _G.AutoShard then
