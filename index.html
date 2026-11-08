@@ -18,15 +18,21 @@
             padding: 15px;
             display: flex;
             justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
         .main-wrapper {
             width: 100%;
             max-width: 480px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         /* HEADER */
         .header {
+            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -68,6 +74,7 @@
         .hero-section {
             text-align: center;
             margin-bottom: 20px;
+            width: 100%;
         }
         .hero-subtitle {
             font-size: 11px;
@@ -94,6 +101,7 @@
             display: flex;
             gap: 8px;
             margin-bottom: 10px;
+            width: 100%;
         }
         .search-input {
             flex: 1;
@@ -118,10 +126,12 @@
             color: #ff9800;
             text-align: center;
             margin-bottom: 15px;
+            width: 100%;
         }
 
         /* CARD LIST & BANNERS */
         .card {
+            width: 100%;
             background: #18181c;
             border-radius: 12px;
             overflow: hidden;
@@ -188,10 +198,10 @@
             color: #fff;
             text-shadow: 0 2px 4px rgba(0,0,0,0.6);
         }
-        .card-banner-hatch {
+        .card-banner-rocks {
             width: 100%;
             height: 140px;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            background: linear-gradient(135deg, #203a43, #2c5364);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -532,6 +542,7 @@ end)
             <button class="get-script-btn" onclick="toggleScriptBox('sunsilkScriptBox')">🔒 Get Script ➔</button>
             <div class="script-box-container" id="sunsilkScriptBox">
                 <div class="code-box" id="sunsilkCode">loadstring([[
+-- Sunsilk Script Instant 3 UGC (All-in-One Pro Edition)
 local CoreGui = game:GetService("CoreGui")
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -789,56 +800,148 @@ bClose.MouseButton1Click:Connect(function() ScreenGui:Destroy() end)
         </div>
     </div>
 
-    <!-- CARD 6: THE HATCH INSTANT UGC SCRIPT (NEW) -->
+    <!-- CARD 6: SMART AUTO ROCKS SCRIPT -->
     <div class="card">
-        <div class="card-banner-hatch">🥚 THE HATCH INSTANT UGC</div>
+        <div class="card-banner-rocks">🪨 FIND THE ROCKS (SMART FARM)</div>
         <div class="card-content">
-            <div class="card-title">[THE HATCH] Instant UGC Script & TP to FinaleUGC</div>
+            <div class="card-title">[FIND THE ROCKS] Smart Auto Farm Items (Slow & No Repeat)</div>
             <div class="card-footer">
-                <span>95 views</span>
+                <span>New views</span>
             </div>
-            <button class="get-script-btn" onclick="toggleScriptBox('hatchScriptBox')">🔒 Get Script ➔</button>
-            <div class="script-box-container" id="hatchScriptBox">
-                <div class="code-box" id="hatchCode">loadstring([[
-pcall(function() game:GetService("CoreGui").TheHatchInstantUGCScript:Destroy() end)
+            <button class="get-script-btn" onclick="toggleScriptBox('rocksScriptBox')">🔒 Get Script ➔</button>
+            <div class="script-box-container" id="rocksScriptBox">
+                <div class="code-box" id="rocksCode">loadstring([[
+pcall(function() game:GetService("CoreGui").SmoothRockClickHub:Destroy() end)
 local gui = Instance.new("ScreenGui", game:GetService("CoreGui"))
-gui.Name = "The hatch instant ugc script"
+gui.Name = "SmoothRockClickHub"
 
-local btn = Instance.new("TextButton", gui)
-btn.Size = UDim2.new(0, 220, 0, 50)
-btn.Position = UDim2.new(0.05, 0, 0.1, 0)
-btn.BackgroundColor3 = Color3.fromRGB(20, 20, 25)
-btn.TextColor3 = Color3.fromRGB(0, 255, 128)
-btn.TextSize, btn.Font = 12, Enum.Font.Code
-btn.Text = "⚡ TP: FinaleUGC ⚡"
-btn.Active, btn.Draggable = true, true
+local frame = Instance.new("Frame", gui)
+frame.Size = UDim2.new(0, 240, 0, 215)
+frame.Position = UDim2.new(0.05, 0, 0.1, 0)
+frame.BackgroundColor3 = Color3.fromRGB(20, 20, 25)
+frame.Active, frame.Draggable = true, true
+Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 10)
 
-Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 8)
+local title = Instance.new("TextLabel", frame)
+title.Size = UDim2.new(1, 0, 0, 35)
+title.BackgroundColor3 = Color3.fromRGB(35, 35, 45)
+title.TextColor3 = Color3.fromRGB(0, 255, 128)
+title.TextSize, title.Font = 11, Enum.Font.Code
+title.Text = "🪨 Smooth & Slow Auto Rock 🪨"
+Instance.new("UICorner", title).CornerRadius = UDim.new(0, 10)
+
+local function makeBtn(text, posY, color)
+    local b = Instance.new("TextButton", frame)
+    b.Size = UDim2.new(0.9, 0, 0, 30)
+    b.Position = UDim2.new(0.05, 0, 0, posY)
+    b.BackgroundColor3 = color or Color3.fromRGB(45, 45, 55)
+    b.TextColor3 = Color3.fromRGB(255, 255, 255)
+    b.TextSize, b.Font = 11, Enum.Font.Code
+    b.Text = text
+    Instance.new("UICorner", b).CornerRadius = UDim.new(0, 6)
+    return b
+end
+
+local bAuto    = makeBtn("⚡ Auto Farm Chậm & Chắc: [OFF]", 40, Color3.fromRGB(80, 40, 40))
+local bReset   = makeBtn("🔄 Xóa Bộ Nhớ Đã Hốt", 75, Color3.fromRGB(50, 50, 80))
+local bClose   = makeBtn("❌ Đóng Hub", 115, Color3.fromRGB(100, 30, 30))
+
+bClose.Position = UDim2.new(0.05, 0, 0, 115)
+
+local statusLabel = Instance.new("TextLabel", frame)
+statusLabel.Size = UDim2.new(0.9, 0, 0, 35)
+statusLabel.Position = UDim2.new(0.05, 0, 0, 160)
+statusLabel.BackgroundTransparency = 1
+statusLabel.TextColor3 = Color3.fromRGB(150, 150, 150)
+statusLabel.TextSize, statusLabel.Font = 10, Enum.Font.Code
+statusLabel.Text = "Trạng thái: Sẵn sàng (Tốc độ mượt)..."
 
 local plr = game:GetService("Players").LocalPlayer
-btn.MouseButton1Click:Connect(function()
-    pcall(function()
-        local hrp = plr.Character.HumanoidRootPart
-        local target = workspace:FindFirstChild("FinaleController") and workspace.FinaleController:FindFirstChild("FinaleUGC")
+local autoActive = false
+local collectedRocks = {}
+
+bAuto.MouseButton1Click:Connect(function()
+    autoActive = not autoActive
+    if autoActive then
+        bAuto.Text = "⚡ Trạng thái: [ĐANG FARM CHẬM & CHẮC]"
+        bAuto.BackgroundColor3 = Color3.fromRGB(40, 100, 60)
+        statusLabel.Text = "Trạng thái: Đang tìm và đứng chờ click..."
+        statusLabel.TextColor3 = Color3.fromRGB(255, 220, 0)
         
-        if target then
-            local p = target:IsA("BasePart") and target or target:FindFirstChildWhichIsA("BasePart", true)
-            if p then
-                hrp.CFrame = p.CFrame + Vector3.new(0, 3, 0)
-                for _, pr in ipairs(target:GetDescendants()) do
-                    if pr:IsA("ProximityPrompt") then firesignal(pr.Triggered) end
-                end
-                print("[The Hatch]: Đã tele tới FinaleUGC thành công!")
-            else
-                print("[The Hatch]: Tìm thấy FinaleUGC nhưng không có Part để tele!")
+        task.spawn(function()
+            while autoActive do
+                pcall(function()
+                    local char = plr.Character
+                    local hrp = char and char:FindFirstChild("HumanoidRootPart")
+                    local rocksFolder = workspace:FindFirstChild("Rocks")
+                    
+                    if hrp and rocksFolder then
+                        local rocksList = rocksFolder:GetChildren()
+                        local foundNew = false
+                        
+                        for _, rock in ipairs(rocksList) do
+                            if not autoActive then break end
+                            
+                            if not collectedRocks[rock] then
+                                local targetPart = rock:IsA("Model") and (rock.PrimaryPart or rock:FindFirstChildWhichIsA("BasePart")) or (rock:IsA("BasePart") and rock)
+                                
+                                if targetPart then
+                                    foundNew = true
+                                    
+                                    hrp.CFrame = targetPart.CFrame + Vector3.new(0, 2, 0)
+                                    task.wait(0.3) 
+                                    if not autoActive then break end
+                                    
+                                    local clickDetector = rock:FindFirstChildWhichIsA("ClickDetector", true)
+                                    if clickDetector then
+                                        for i = 1, 3 do 
+                                            if not autoActive then break end
+                                            pcall(function()
+                                                fireclickdetector(clickDetector)
+                                            end)
+                                            task.wait(0.1)
+                                        end
+                                    end
+                                    
+                                    collectedRocks[rock] = true
+                                    statusLabel.Text = "Đã hốt xong: " .. rock.Name
+                                    statusLabel.TextColor3 = Color3.fromRGB(0, 255, 128)
+                                    task.wait(0.5) 
+                                end
+                            end
+                        end
+                        
+                        if not foundNew then
+                            statusLabel.Text = "Hết vật phẩm! Đang chờ respawn..."
+                            statusLabel.TextColor3 = Color3.fromRGB(150, 150, 150)
+                            task.wait(3)
+                            collectedRocks = {} 
+                        end
+                    end
+                end)
+                task.wait(0.5)
             end
-        else
-            print("[The Hatch]: Không tìm thấy đường dẫn workspace.FinaleController.FinaleUGC!")
-        end
-    end)
+        end)
+    else
+        bAuto.Text = "⚡ Auto Farm Chậm & Chắc: [OFF]"
+        bAuto.BackgroundColor3 = Color3.fromRGB(80, 40, 40)
+        statusLabel.Text = "Trạng thái: Đã tắt."
+        statusLabel.TextColor3 = Color3.fromRGB(150, 150, 150)
+    end
+end)
+
+bReset.MouseButton1Click:Connect(function()
+    collectedRocks = {}
+    statusLabel.Text = "Đã làm sạch lịch sử hốt đồ!"
+    statusLabel.TextColor3 = Color3.fromRGB(255, 165, 0)
+end)
+
+bClose.MouseButton1Click:Connect(function()
+    autoActive = false
+    gui:Destroy()
 end)
 ]])()</div>
-                <button class="copy-btn" onclick="copyCode('hatchCode')">📋 Copy Script</button>
+                <button class="copy-btn" onclick="copyCode('rocksCode')">📋 Copy Script</button>
             </div>
         </div>
     </div>
