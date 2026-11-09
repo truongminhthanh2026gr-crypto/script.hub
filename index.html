@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minh Thành Trương - Script Hub</title>
+    <title>ZunnScript - Script Hub Draft</title>
     <style>
         * {
             box-sizing: border-box;
@@ -15,10 +15,10 @@
         body {
             background-color: #0f0f12;
             color: #ffffff;
-            padding: 15px;
+            padding: 10px 15px;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             min-height: 100vh;
         }
 
@@ -28,6 +28,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin-top: 5px;
         }
 
         /* HEADER */
@@ -36,10 +37,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-bottom: 15px;
-            margin-bottom: 20px;
+            padding-bottom: 12px;
+            margin-bottom: 15px;
             border-bottom: 1px solid #222;
         }
+        
         .channel-info {
             display: flex;
             align-items: center;
@@ -47,47 +49,49 @@
             text-decoration: none;
         }
         .channel-avatar {
-            width: 38px;
-            height: 38px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
-            border: 2px solid #ff9800;
+            border: 2px solid #00e676;
             background: #1a1a20;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            color: #ff9800;
-            font-size: 18px;
+            color: #00e676;
+            font-size: 15px;
         }
         .channel-name {
             font-size: 15px;
             font-weight: bold;
             color: #ffffff;
         }
+
         .menu-icon {
             color: #fff;
             font-size: 20px;
             cursor: pointer;
+            padding: 5px;
         }
 
-        /* HERO BANNER TEXT */
+        /* HERO SECTION */
         .hero-section {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             width: 100%;
         }
         .hero-subtitle {
             font-size: 11px;
             font-weight: bold;
-            color: #ff9800;
+            color: #00e676;
             letter-spacing: 2px;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
         .hero-title {
             font-size: 22px;
             font-weight: 900;
             color: #ffffff;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             text-transform: uppercase;
         }
         .hero-desc {
@@ -100,7 +104,7 @@
         .search-box {
             display: flex;
             gap: 8px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             width: 100%;
         }
         .search-input {
@@ -113,7 +117,7 @@
             outline: none;
         }
         .search-btn {
-            background: #c66900;
+            background: #00875a;
             color: white;
             border: none;
             padding: 10px 18px;
@@ -123,166 +127,10 @@
         }
         .script-count {
             font-size: 13px;
-            color: #ff9800;
-            text-align: center;
-            margin-bottom: 15px;
-            width: 100%;
-        }
-
-        /* CARD LIST & BANNERS */
-        .card {
-            width: 100%;
-            background: #18181c;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid #2a2a30;
-            margin-bottom: 20px;
-        }
-        .card-banner-banana {
-            width: 100%;
-            height: 140px;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 20px;
-            color: #fff;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-        }
-        .card-banner-milk {
-            width: 100%;
-            height: 140px;
-            background: linear-gradient(135deg, #2b5876, #4e4376);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 20px;
-            color: #fff;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-        }
-        .card-banner-mainstreet {
-            width: 100%;
-            height: 140px;
-            background: linear-gradient(135deg, #7c3aed, #db2777);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 20px;
-            color: #fff;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-        }
-        .card-banner-sunsilk {
-            width: 100%;
-            height: 140px;
-            background: linear-gradient(135deg, #ff5e62, #ff9966);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 20px;
-            color: #fff;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-        }
-        .card-banner-obby {
-            width: 100%;
-            height: 140px;
-            background: linear-gradient(135deg, #434343, #000000);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 20px;
-            color: #fff;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-        }
-        .card-banner-rocks {
-            width: 100%;
-            height: 140px;
-            background: linear-gradient(135deg, #203a43, #2c5364);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 20px;
-            color: #fff;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-        }
-        .card-banner-hatch {
-            width: 100%;
-            height: 140px;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 20px;
-            color: #fff;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-        }
-        .card-content {
-            padding: 15px;
-        }
-        .card-title {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 12px;
-            line-height: 1.3;
-        }
-        .card-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 12px;
-            color: #aaa;
-        }
-        .get-script-btn {
-            width: 100%;
-            padding: 12px;
-            background: linear-gradient(90deg, #d87000, #b35900);
-            color: white;
-            border: none;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 10px;
-            box-shadow: 0 4px 12px rgba(216, 112, 0, 0.3);
-        }
-
-        /* SCRIPT DISPLAY AREA */
-        .script-box-container {
-            display: none;
-            margin-top: 12px;
-            background: #121215;
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid #333;
-        }
-        .code-box {
-            background: #000;
             color: #00e676;
-            padding: 10px;
-            border-radius: 5px;
-            font-family: monospace;
-            font-size: 11px;
-            white-space: pre-wrap;
-            word-break: break-all;
-            margin-bottom: 10px;
-            max-height: 160px;
-            overflow-y: auto;
-        }
-        .copy-btn {
+            text-align: center;
+            margin-bottom: 12px;
             width: 100%;
-            padding: 10px;
-            background: #007acc;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
         }
     </style>
 </head>
@@ -290,858 +138,32 @@
 
 <div class="main-wrapper">
 
-    <!-- HEADER: KÊNH YOUTUBE MINH THÀNH TRƯƠNG -->
+    <!-- HEADER: KANAL ZUNNSCRIP -->
     <div class="header">
-        <a href="https://youtube.com/@minhthanhtruong-h8k" target="_blank" class="channel-info">
-            <div class="channel-avatar">MT</div>
-            <span class="channel-name">Minh Thành Trương</span>
+        <a href="https://youtube.com/@zunnscrip" target="_blank" class="channel-info">
+            <div class="channel-avatar">Z</div>
+            <span class="channel-name">ZunnScript</span>
         </a>
         <div class="menu-icon">☰</div>
     </div>
 
     <!-- HERO SECTION -->
     <div class="hero-section">
-        <div class="hero-subtitle">FAST AND OP ROBLOX SCRIPTS</div>
+        <div class="hero-subtitle">SKRIP ROBLOX CEPAT DAN OP</div>
         <div class="hero-title">SCRIPT HUB</div>
-        <div class="hero-desc">Free Roblox scripts, updated regularly. Find one, hit Get Script, and you're set.</div>
+        <div class="hero-desc">Skrip Roblox gratis, diperbarui secara berkala. Temukan satu, klik Dapatkan Skrip, dan selesai.</div>
     </div>
 
     <!-- SEARCH BOX -->
     <div class="search-box">
-        <input type="text" id="searchInput" class="search-input" placeholder="Search scripts...">
-        <button class="search-btn" onclick="filterScripts()">Search</button>
+        <input type="text" id="searchInput" class="search-input" placeholder="Cari skrip...">
+        <button class="search-btn">Cari</button>
     </div>
-    <div class="script-count" id="scriptCount">7 scripts available</div>
+    <div class="script-count" id="scriptCount">0 skrip tersedia</div>
 
-    <!-- CARD 1: BANANA SCRIPT -->
-    <div class="card">
-        <div class="card-banner-banana">🍌 AVL: THE SHOW 2</div>
-        <div class="card-content">
-            <div class="card-title">[FREE UGC] AVL: The Show 2 OP Script (Auto Farm Bananas)</div>
-            <div class="card-footer">
-                <span>122 views</span>
-            </div>
-            <button class="get-script-btn" onclick="toggleScriptBox('bananaScriptBox')">🔒 Get Script ➔</button>
-            <div class="script-box-container" id="bananaScriptBox">
-                <div class="code-box" id="bananaCode">loadstring([[
-local p = game:GetService("Players").LocalPlayer
-local c = {}
-local function r()
-    local ch = p.Character or p.CharacterAdded:Wait()
-    local h = ch:WaitForChild("HumanoidRootPart", 5)
-    local hu = ch:WaitForChild("Humanoid", 5)
-    if not h or not hu then return end
-    for _, o in ipairs(workspace:GetDescendants()) do
-        if o.Name:lower():find("banana") and not c[o] then
-            if hu.Health <= 0 then break end
-            local t = o:IsA("BasePart") and o.CFrame or (o:IsA("Model") and o.PrimaryPart and o.PrimaryPart.CFrame)
-            if t then
-                h.CFrame = t + Vector3.new(0, 2.5, 0)
-                task.wait(0.6)
-                local pr = o:FindFirstChildOfClass("ProximityPrompt") or (o.Parent and o.Parent:FindFirstChildOfClass("ProximityPrompt"))
-                if pr then fireproximityprompt(pr) end
-                if o:IsA("BasePart") then firetouchinterest(h, o, 0) firetouchinterest(h, o, 1) end
-                c[o] = true
-                task.wait(0.4)
-            end
-        end
-    end
-end
-p.CharacterAdded:Connect(function() task.wait(2) task.spawn(r) end)
-task.spawn(r)
-]])()</div>
-                <button class="copy-btn" onclick="copyCode('bananaCode')">📋 Copy Script</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- CARD 2: MILKXP SCRIPT -->
-    <div class="card">
-        <div class="card-banner-milk">🥛 MILKXP AUTO CLAIM</div>
-        <div class="card-content">
-            <div class="card-title">[FREE UGC] MilkXP Auto Farm & Auto Continue/Claim</div>
-            <div class="card-footer">
-                <span>254 views</span>
-            </div>
-            <button class="get-script-btn" onclick="toggleScriptBox('milkScriptBox')">🔒 Get Script ➔</button>
-            <div class="script-box-container" id="milkScriptBox">
-                <div class="code-box" id="milkCode">loadstring([[
-local Players = game:GetService("Players")
-local Workspace = game:GetService("Workspace")
-local RunService = game:GetService("RunService")
-local VirtualInputManager = game:GetService("VirtualInputManager")
-local LocalPlayer = Players.LocalPlayer
-
-_G.AutoMilkXP = true
-
-local noclipConnection
-noclipConnection = RunService.Stepped:Connect(function()
-    if not _G.AutoMilkXP then
-        if noclipConnection then noclipConnection:Disconnect() end
-        return
-    end
-    local character = LocalPlayer.Character
-    if character then
-        for _, part in ipairs(character:GetDescendants()) do
-            if part:IsA("BasePart") then part.CanCollide = false end
-        end
-    end
-end)
-
-local function safeTeleport(targetCF)
-    local character = LocalPlayer.Character
-    local rootPart = character and character:FindFirstChild("HumanoidRootPart")
-    local humanoid = character and character:FindFirstChildOfClass("Humanoid")
-    if rootPart and humanoid and humanoid.Health > 0 then
-        rootPart.CFrame = targetCF
-        rootPart.Velocity = Vector3.new(0, 0, 0)
-    end
-end
-
-local function autoClickContinue()
-    local playerGui = LocalPlayer:FindFirstChild("PlayerGui")
-    if not playerGui then return end
-    local startTime = tick()
-    while tick() - startTime < 3.5 do
-        if not _G.AutoMilkXP then break end
-        local clickedAny = false
-        for _, gui in ipairs(playerGui:GetDescendants()) do
-            if (gui:IsA("TextButton") or gui:IsA("ImageButton")) and gui.Visible and gui.AbsoluteSize.X > 0 then
-                local btnText = (gui:IsA("TextButton") and gui.Text) or gui.Name
-                if string.find(string.lower(btnText), "continue") or string.find(string.lower(gui.Name), "continue") then
-                    pcall(function()
-                        for _, conn in ipairs(getconnections(gui.MouseButton1Click)) do conn:Fire() end
-                        for _, conn in ipairs(getconnections(gui.Activated)) do conn:Fire() end
-                    end)
-                    clickedAny = true
-                end
-            end
-        end
-        task.wait(0.25)
-        if not clickedAny and (tick() - startTime > 1) then break end
-    end
-end
-
-local function getItemPrompt(itemObj)
-    if not itemObj or not itemObj.Parent then return nil end
-    for _, prompt in ipairs(itemObj:GetDescendants()) do
-        if prompt:IsA("ProximityPrompt") and prompt.Enabled then return prompt end
-    end
-    return nil
-end
-
-task.spawn(function()
-    while task.wait(0.4) do
-        if _G.AutoMilkXP then
-            pcall(function()
-                local character = LocalPlayer.Character
-                local humanoidRootPart = character and character:FindFirstChild("HumanoidRootPart")
-                if humanoidRootPart then
-                    local itemSpawns = Workspace:FindFirstChild("ItemSpawns")
-                    local cashNPCs = Workspace:FindFirstChild("CashNPCs")
-                    if itemSpawns then
-                        for _, spawnFolder in ipairs(itemSpawns:GetChildren()) do
-                            if not _G.AutoMilkXP then break end
-                            local itemObj = spawnFolder:FindFirstChild("Item")
-                            local prompt = getItemPrompt(itemObj)
-                            if itemObj and prompt then
-                                local targetPart = itemObj:FindFirstChild("Outline") or itemObj:IsA("BasePart") and itemObj or itemObj:FindFirstChildWhichIsA("BasePart", true)
-                                if targetPart and targetPart.Transparency < 0.9 then
-                                    safeTeleport(targetPart.CFrame + Vector3.new(0, 1, 0))
-                                    task.wait(0.25)
-                                    pcall(function() fireproximityprompt(prompt) end)
-                                    task.wait(0.35)
-                                    if cashNPCs then
-                                        for _, npc in ipairs(cashNPCs:GetChildren()) do
-                                            if not _G.AutoMilkXP then break end
-                                            local npcPart = npc:IsA("BasePart") and npc or npc:FindFirstChild("HumanoidRootPart") or npc:FindFirstChild("Head") or npc:FindFirstChildWhichIsA("BasePart", true)
-                                            if npcPart then
-                                                safeTeleport(npcPart.CFrame + Vector3.new(0, 1.5, 2.5))
-                                                task.wait(0.35)
-                                                for _, npcPrompt in ipairs(npc:GetDescendants()) do
-                                                    if npcPrompt:IsA("ProximityPrompt") and npcPrompt.Enabled then pcall(function() fireproximityprompt(npcPrompt) end) end
-                                                end
-                                                autoClickContinue()
-                                                task.wait(0.5)
-                                            end
-                                        end
-                                    end
-                                end
-                            end
-                        end
-                    end
-                end
-            end)
-        end
-    end
-end)
-]])()</div>
-                <button class="copy-btn" onclick="copyCode('milkCode')">📋 Copy Script</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- CARD 3: MAIN STREET RP SCRIPT -->
-    <div class="card">
-        <div class="card-banner-mainstreet">🌆 MAIN STREET RP</div>
-        <div class="card-content">
-            <div class="card-title">[TAMAGOTCHI] Main Street RP Auto Collect Shards</div>
-            <div class="card-footer">
-                <span>310 views</span>
-            </div>
-            <button class="get-script-btn" onclick="toggleScriptBox('mainstreetScriptBox')">🔒 Get Script ➔</button>
-            <div class="script-box-container" id="mainstreetScriptBox">
-                <div class="code-box" id="mainstreetCode">loadstring([[
-local Players = game:GetService("Players")
-local Workspace = game:GetService("Workspace")
-local LocalPlayer = Players.LocalPlayer
-
-_G.AutoShard = true
-
-local function fireTouch(part)
-    if part and part:IsA("BasePart") then
-        local character = LocalPlayer.Character
-        local rootPart = character and character:FindFirstChild("HumanoidRootPart")
-        if rootPart then
-            rootPart.CFrame = part.CFrame
-            if firetouchinterest then
-                firetouchinterest(rootPart, part, 0)
-                task.wait()
-                firetouchinterest(rootPart, part, 1)
-            end
-        end
-    end
-end
-
-task.spawn(function()
-    while task.wait(0.3) do
-        if _G.AutoShard then
-            pcall(function()
-                local character = LocalPlayer.Character
-                local humanoidRootPart = character and character:FindFirstChild("HumanoidRootPart")
-                local humanoid = character and character:FindFirstChildOfClass("Humanoid")
-                if humanoidRootPart and humanoid and humanoid.Health > 0 then
-                    local tamagotchi = Workspace:FindFirstChild("Tamagotchi")
-                    local shardsFolder = tamagotchi and tamagotchi:FindFirstChild("Shards")
-                    if shardsFolder then
-                        for _, shardModel in pairs(shardsFolder:GetChildren()) do
-                            local targetPart = shardModel:FindFirstChildWhichIsA("BasePart", true)
-                            if targetPart and _G.AutoShard then
-                                fireTouch(targetPart)
-                                task.wait(0.1)
-                            end
-                        end
-                    end
-                end
-            end)
-        end
-    end
-end)
-]])()</div>
-                <button class="copy-btn" onclick="copyCode('mainstreetCode')">📋 Copy Script</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- CARD 4: SUNSILK SCRIPT INSTANT 3 UGC -->
-    <div class="card">
-        <div class="card-banner-sunsilk">🧴 SUNSILK LAB TYCOON</div>
-        <div class="card-content">
-            <div class="card-title">[FREE 3 UGC] Sunsilk Script Instant 3 UGC (Auto Cash, Greeter & Tycoon)</div>
-            <div class="card-footer">
-                <span>420 views</span>
-            </div>
-            <button class="get-script-btn" onclick="toggleScriptBox('sunsilkScriptBox')">🔒 Get Script ➔</button>
-            <div class="script-box-container" id="sunsilkScriptBox">
-                <div class="code-box" id="sunsilkCode">loadstring([[
--- Sunsilk Script Instant 3 UGC (All-in-One Pro Edition)
-local CoreGui = game:GetService("CoreGui")
-local Players = game:GetService("Players")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local Workspace = game:GetService("Workspace")
-local LocalPlayer = Players.LocalPlayer
-
-if CoreGui:FindFirstChild("SunsilInstantUGCUI") then
-    CoreGui.SunsilInstantUGCUI:Destroy()
-end
-
-local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "SunsilInstantUGCUI"
-ScreenGui.Parent = CoreGui
-
-local MainFrame = Instance.new("Frame")
-MainFrame.Size = UDim2.new(0, 240, 0, 225)
-MainFrame.Position = UDim2.new(0.05, 0, 0.4, 0)
-MainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-MainFrame.BorderSizePixel = 0
-MainFrame.Active = true
-MainFrame.Draggable = true
-MainFrame.Parent = ScreenGui
-
-local UICorner = Instance.new("UICorner")
-UICorner.CornerRadius = UDim.new(0, 10)
-UICorner.Parent = MainFrame
-
-local Title = Instance.new("TextLabel")
-Title.Size = UDim2.new(1, 0, 0, 38)
-Title.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-Title.TextColor3 = Color3.fromRGB(255, 100, 180)
-Title.TextSize = 13
-Title.Font = Enum.Font.SourceSansBold
-Title.Text = "Sunsilk Script Instant 3 UGC"
-Title.Parent = MainFrame
-
-local TitleCorner = Instance.new("UICorner")
-TitleCorner.CornerRadius = UDim.new(0, 10)
-TitleCorner.Parent = Title
-
-local function createButton(name, posY)
-    local btn = Instance.new("TextButton")
-    btn.Size = UDim2.new(0.9, 0, 0, 35)
-    btn.Position = UDim2.new(0.05, 0, posY, 0)
-    btn.BackgroundColor3 = Color3.fromRGB(200, 50, 50)
-    btn.TextColor3 = Color3.fromRGB(255, 255, 255)
-    btn.TextSize = 12
-    btn.Font = Enum.Font.SourceSansBold
-    btn.Text = name .. ": TẮT"
-    btn.Parent = MainFrame
-
-    local corner = Instance.new("UICorner")
-    corner.CornerRadius = UDim.new(0, 6)
-    corner.Parent = btn
-    return btn
-end
-
-local ToggleCash = createButton("Auto ATM (Collider)", 0.21)
-local ToggleNPC = createButton("Auto NPC Greeter (Train)", 0.44)
-local ToggleTycoon = createButton("Auto Tycoon (Super Fast)", 0.67)
-
-local cashRunning = false
-local npcRunning = false
-local tycoonRunning = false
-
-ToggleCash.MouseButton1Click:Connect(function()
-    cashRunning = not cashRunning
-    ToggleCash.BackgroundColor3 = cashRunning and Color3.fromRGB(50, 200, 50) or Color3.fromRGB(200, 50, 50)
-    ToggleCash.Text = "Auto ATM: " .. (cashRunning and "BẬT" or "TẮT")
-end)
-
-ToggleNPC.MouseButton1Click:Connect(function()
-    npcRunning = not npcRunning
-    ToggleNPC.BackgroundColor3 = npcRunning and Color3.fromRGB(50, 200, 50) or Color3.fromRGB(200, 50, 50)
-    ToggleNPC.Text = "Auto NPC Greeter: " .. (npcRunning and "BẬT" or "TẮT")
-end)
-
-ToggleTycoon.MouseButton1Click:Connect(function()
-    tycoonRunning = not tycoonRunning
-    ToggleTycoon.BackgroundColor3 = tycoonRunning and Color3.fromRGB(50, 200, 50) or Color3.fromRGB(200, 50, 50)
-    ToggleTycoon.Text = "Auto Tycoon: " .. (tycoonRunning and "BẬT" or "TẮT")
-end)
-
-task.spawn(function()
-    while true do
-        task.wait(1.2)
-        pcall(function()
-            local char = LocalPlayer.Character
-            if not char or not char:FindFirstChild("HumanoidRootPart") then return end
-            local hrp = char.HumanoidRootPart
-
-            local userId = tostring(LocalPlayer.UserId)
-            local tycoon = Workspace:FindFirstChild("Tycoons") and Workspace.Tycoons:FindFirstChild(userId)
-            
-            local weaverButton = nil
-            local upgradeEvent = nil
-            pcall(function()
-                weaverButton = ReplicatedStorage["$_Weaver"].Behavior.Button.Pressed
-                upgradeEvent = ReplicatedStorage["$_Weaver"].Behavior.PassiveIncome.Upgrade
-            end)
-
-            if not tycoon then return end
-
-            if cashRunning then
-                local collider = tycoon:FindFirstChild("entrance_atm") and tycoon.entrance_atm:FindFirstChild("Collider")
-                if collider and collider:IsA("BasePart") then
-                    hrp.CFrame = collider.CFrame + Vector3.new(0, 2, 0)
-                    if weaverButton then weaverButton:InvokeServer(tycoon.entrance_atm) end
-                end
-            end
-
-            if npcRunning then
-                local greeter = tycoon:FindFirstChild("entrance_greeter")
-                if greeter then
-                    local targetPart = greeter:IsA("Model") and greeter.PrimaryPart or greeter:FindFirstChildWhichIsA("BasePart")
-                    if targetPart then
-                        hrp.CFrame = targetPart.CFrame + Vector3.new(0, 2, 2)
-                        if upgradeEvent then
-                            upgradeEvent:InvokeServer(greeter, 1)
-                        elseif weaverButton then
-                            weaverButton:InvokeServer(greeter)
-                        end
-                    end
-                end
-            end
-
-            if tycoonRunning then
-                for _, obj in ipairs(tycoon:GetDescendants()) do
-                    if not tycoonRunning then break end
-                    local n = obj.Name:lower()
-                    if n:find("button") or n:find("buy") then
-                        local targetPart = obj:IsA("Model") and obj.PrimaryPart or obj:FindFirstChildWhichIsA("BasePart")
-                        if targetPart and targetPart:IsA("BasePart") then
-                            hrp.CFrame = targetPart.CFrame + Vector3.new(0, 2, 0)
-                            if weaverButton then weaverButton:InvokeServer(obj) end
-                            task.wait(0.06)
-                        end
-                    end
-                end
-            end
-        end)
-    end
-end)
-]])()</div>
-                <button class="copy-btn" onclick="copyCode('sunsilkCode')">📋 Copy Script</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- CARD 5: OBBY UGC SCRIPT -->
-    <div class="card">
-        <div class="card-banner-obby">⚡ OBBY UGC (KHỐI BẠC)</div>
-        <div class="card-content">
-            <div class="card-title">[ROBLOX LEARN EXPERIENCE] Instant Obby UGC (Khối Bạc)</div>
-            <div class="card-footer">
-                <span>180 views</span>
-            </div>
-            <button class="get-script-btn" onclick="toggleScriptBox('obbyScriptBox')">🔒 Get Script ➔</button>
-            <div class="script-box-container" id="obbyScriptBox">
-                <div class="code-box" id="obbyCode">loadstring([[
-local CoreGui = game:GetService("CoreGui")
-local Players = game:GetService("Players")
-local Workspace = game:GetService("Workspace")
-local LocalPlayer = Players.LocalPlayer
-
-if CoreGui:FindFirstChild("KynaroidObbyOnlyHub") then
-    CoreGui.KynaroidObbyOnlyHub:Destroy()
-end
-
-local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "KynaroidObbyOnlyHub"
-ScreenGui.Parent = CoreGui
-
-local MainFrame = Instance.new("Frame")
-MainFrame.Size = UDim2.new(0, 260, 0, 130)
-MainFrame.Position = UDim2.new(0.02, 0, 0.1, 0)
-MainFrame.BackgroundColor3 = Color3.fromRGB(22, 22, 28)
-MainFrame.BorderSizePixel = 0
-MainFrame.Active = true
-MainFrame.Draggable = true
-MainFrame.Parent = ScreenGui
-
-local UICorner = Instance.new("UICorner")
-UICorner.CornerRadius = UDim.new(0, 10)
-UICorner.Parent = MainFrame
-
-local Title = Instance.new("TextLabel")
-Title.Size = UDim2.new(1, 0, 0, 35)
-Title.BackgroundColor3 = Color3.fromRGB(38, 38, 48)
-Title.TextColor3 = Color3.fromRGB(0, 255, 255)
-Title.TextSize, Title.Font = 11, Enum.Font.SourceSansBold
-Title.Text = "Open (made by: @TrươngMinhThành)"
-Title.Parent = MainFrame
-
-local TitleCorner = Instance.new("UICorner")
-TitleCorner.CornerRadius = UDim.new(0, 10)
-TitleCorner.Parent = Title
-
-local function makeBtn(name, posY, color)
-    local btn = Instance.new("TextButton")
-    btn.Size = UDim2.new(0.92, 0, 0, 32)
-    btn.Position = UDim2.new(0.04, 0, 0, posY)
-    btn.BackgroundColor3 = color or Color3.fromRGB(45, 45, 55)
-    btn.TextColor3 = Color3.fromRGB(255, 255, 255)
-    btn.TextSize, btn.Font = 11, Enum.Font.SourceSansBold
-    btn.Text = name
-    btn.Parent = MainFrame
-
-    local corner = Instance.new("UICorner")
-    corner.CornerRadius = UDim.new(0, 6)
-    corner.Parent = btn
-    return btn
-end
-
-local bObby = makeBtn("⚡ Instant *Khối Bạc* (Obby UGC)", 45, Color3.fromRGB(35, 95, 95))
-local bClose = makeBtn("Close GUI", 85, Color3.fromRGB(80, 35, 35))
-
-local function noclip()
-    pcall(function()
-        local char = LocalPlayer.Character
-        if char then
-            for _, part in ipairs(char:GetDescendants()) do
-                if part:IsA("BasePart") then
-                    part.CanCollide = false
-                end
-            end
-        end
-    end)
-end
-
-bObby.MouseButton1Click:Connect(function()
-    pcall(function()
-        local char = LocalPlayer.Character
-        if not char or not char:FindFirstChild("HumanoidRootPart") then return end
-        local hrp = char.HumanoidRootPart
-        
-        local finalPlat = Workspace.End_Obby.Prize_Platform.FinalPlatform
-        if finalPlat then
-            noclip()
-            hrp.CFrame = finalPlat.CFrame + Vector3.new(0, 5, 0)
-            task.wait(0.3)
-            for _, p in ipairs(Workspace:GetDescendants()) do
-                if p:IsA("ProximityPrompt") then 
-                    pcall(function() fireproximityprompt(p) end) 
-                end
-            end
-        end
-    end)
-end)
-
-bClose.MouseButton1Click:Connect(function() ScreenGui:Destroy() end)
-]])()</div>
-                <button class="copy-btn" onclick="copyCode('obbyCode')">📋 Copy Script</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- CARD 6: SMART AUTO ROCKS SCRIPT -->
-    <div class="card">
-        <div class="card-banner-rocks">🪨 FIND THE ROCKS (SMART FARM)</div>
-        <div class="card-content">
-            <div class="card-title">[FIND THE ROCKS] Smart Auto Farm Items (Slow & No Repeat)</div>
-            <div class="card-footer">
-                <span>New views</span>
-            </div>
-            <button class="get-script-btn" onclick="toggleScriptBox('rocksScriptBox')">🔒 Get Script ➔</button>
-            <div class="script-box-container" id="rocksScriptBox">
-                <div class="code-box" id="rocksCode">loadstring([[
-pcall(function() game:GetService("CoreGui").SmoothRockClickHub:Destroy() end)
-local gui = Instance.new("ScreenGui", game:GetService("CoreGui"))
-gui.Name = "SmoothRockClickHub"
-
-local frame = Instance.new("Frame", gui)
-frame.Size = UDim2.new(0, 240, 0, 215)
-frame.Position = UDim2.new(0.05, 0, 0.1, 0)
-frame.BackgroundColor3 = Color3.fromRGB(20, 20, 25)
-frame.Active, frame.Draggable = true, true
-Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 10)
-
-local title = Instance.new("TextLabel", frame)
-title.Size = UDim2.new(1, 0, 0, 35)
-title.BackgroundColor3 = Color3.fromRGB(35, 35, 45)
-title.TextColor3 = Color3.fromRGB(0, 255, 128)
-title.TextSize, title.Font = 11, Enum.Font.Code
-title.Text = "🪨 Smooth & Slow Auto Rock 🪨"
-Instance.new("UICorner", title).CornerRadius = UDim.new(0, 10)
-
-local function makeBtn(text, posY, color)
-    local b = Instance.new("TextButton", frame)
-    b.Size = UDim2.new(0.9, 0, 0, 30)
-    b.Position = UDim2.new(0.05, 0, 0, posY)
-    b.BackgroundColor3 = color or Color3.fromRGB(45, 45, 55)
-    b.TextColor3 = Color3.fromRGB(255, 255, 255)
-    b.TextSize, b.Font = 11, Enum.Font.Code
-    b.Text = text
-    Instance.new("UICorner", b).CornerRadius = UDim.new(0, 6)
-    return b
-end
-
-local bAuto    = makeBtn("⚡ Auto Farm Chậm & Chắc: [OFF]", 40, Color3.fromRGB(80, 40, 40))
-local bReset   = makeBtn("🔄 Xóa Bộ Nhớ Đã Hốt", 75, Color3.fromRGB(50, 50, 80))
-local bClose   = makeBtn("❌ Đóng Hub", 115, Color3.fromRGB(100, 30, 30))
-
-bClose.Position = UDim2.new(0.05, 0, 0, 115)
-
-local statusLabel = Instance.new("TextLabel", frame)
-statusLabel.Size = UDim2.new(0.9, 0, 0, 35)
-statusLabel.Position = UDim2.new(0.05, 0, 0, 160)
-statusLabel.BackgroundTransparency = 1
-statusLabel.TextColor3 = Color3.fromRGB(150, 150, 150)
-statusLabel.TextSize, statusLabel.Font = 10, Enum.Font.Code
-statusLabel.Text = "Trạng thái: Sẵn sàng (Tốc độ mượt)..."
-
-local plr = game:GetService("Players").LocalPlayer
-local autoActive = false
-local collectedRocks = {}
-
-bAuto.MouseButton1Click:Connect(function()
-    autoActive = not autoActive
-    if autoActive then
-        bAuto.Text = "⚡ Trạng thái: [ĐANG FARM CHẬM & CHẮC]"
-        bAuto.BackgroundColor3 = Color3.fromRGB(40, 100, 60)
-        statusLabel.Text = "Trạng thái: Đang tìm và đứng chờ click..."
-        statusLabel.TextColor3 = Color3.fromRGB(255, 220, 0)
-        
-        task.spawn(function()
-            while autoActive do
-                pcall(function()
-                    local char = plr.Character
-                    local hrp = char and char:FindFirstChild("HumanoidRootPart")
-                    local rocksFolder = workspace:FindFirstChild("Rocks")
-                    
-                    if hrp and rocksFolder then
-                        local rocksList = rocksFolder:GetChildren()
-                        local foundNew = false
-                        
-                        for _, rock in ipairs(rocksList) do
-                            if not autoActive then break end
-                            
-                            if not collectedRocks[rock] then
-                                local targetPart = rock:IsA("Model") and (rock.PrimaryPart or rock:FindFirstChildWhichIsA("BasePart")) or (rock:IsA("BasePart") and rock)
-                                
-                                if targetPart then
-                                    foundNew = true
-                                    
-                                    hrp.CFrame = targetPart.CFrame + Vector3.new(0, 2, 0)
-                                    task.wait(0.3) 
-                                    if not autoActive then break end
-                                    
-                                    local clickDetector = rock:FindFirstChildWhichIsA("ClickDetector", true)
-                                    if clickDetector then
-                                        for i = 1, 3 do 
-                                            if not autoActive then break end
-                                            pcall(function()
-                                                fireclickdetector(clickDetector)
-                                            end)
-                                            task.wait(0.1)
-                                        end
-                                    end
-                                    
-                                    collectedRocks[rock] = true
-                                    statusLabel.Text = "Đã hốt xong: " .. rock.Name
-                                    statusLabel.TextColor3 = Color3.fromRGB(0, 255, 128)
-                                    task.wait(0.5) 
-                                end
-                            end
-                        end
-                        
-                        if not foundNew then
-                            statusLabel.Text = "Hết vật phẩm! Đang chờ respawn..."
-                            statusLabel.TextColor3 = Color3.fromRGB(150, 150, 150)
-                            task.wait(3)
-                            collectedRocks = {} 
-                        end
-                    end
-                end)
-                task.wait(0.5)
-            end
-        end)
-    else
-        bAuto.Text = "⚡ Auto Farm Chậm & Chắc: [OFF]"
-        bAuto.BackgroundColor3 = Color3.fromRGB(80, 40, 40)
-        statusLabel.Text = "Trạng thái: Đã tắt."
-        statusLabel.TextColor3 = Color3.fromRGB(150, 150, 150)
-    end
-end)
-
-bReset.MouseButton1Click:Connect(function()
-    collectedRocks = {}
-    statusLabel.Text = "Đã làm sạch lịch sử hốt đồ!"
-    statusLabel.TextColor3 = Color3.fromRGB(255, 165, 0)
-end)
-
-bClose.MouseButton1Click:Connect(function()
-    autoActive = false
-    gui:Destroy()
-end)
-]])()</div>
-                <button class="copy-btn" onclick="copyCode('rocksCode')">📋 Copy Script</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- CARD 7: THE HATCH (TELEPORT HUB) -->
-    <div class="card">
-        <div class="card-banner-hatch">🥚 THE HATCH (TELEPORT HUB)</div>
-        <div class="card-content">
-            <div class="card-title">[THE HATCH] Teleport Hub (Tele to Boat & Tele to UGC)</div>
-            <div class="card-footer">
-                <span>New views</span>
-            </div>
-            <button class="get-script-btn" onclick="toggleScriptBox('hatchScriptBox')">🔒 Get Script ➔</button>
-            <div class="script-box-container" id="hatchScriptBox">
-                <div class="code-box" id="hatchCode">loadstring([[
-pcall(function() game:GetService("CoreGui").TheHatchCleanHub:Destroy() end)
-
-local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "TheHatchCleanHub"
-ScreenGui.Parent = game:GetService("CoreGui")
-
-local MainFrame = Instance.new("Frame")
-MainFrame.Size = UDim2.new(0, 260, 0, 180)
-MainFrame.Position = UDim2.new(0.05, 0, 0.1, 0)
-MainFrame.BackgroundColor3 = Color3.fromRGB(18, 18, 24)
-MainFrame.BorderSizePixel = 0
-MainFrame.Active = true
-MainFrame.Draggable = true
-MainFrame.Parent = ScreenGui
-
-local UICorner = Instance.new("UICorner")
-UICorner.CornerRadius = UDim.new(0, 10)
-UICorner.Parent = MainFrame
-
-local TitleBar = Instance.new("Frame")
-TitleBar.Size = UDim2.new(1, 0, 0, 40)
-TitleBar.BackgroundColor3 = Color3.fromRGB(28, 28, 38)
-TitleBar.BorderSizePixel = 0
-TitleBar.Parent = MainFrame
-
-local TitleCorner = Instance.new("UICorner")
-TitleCorner.CornerRadius = UDim.new(0, 10)
-TitleCorner.Parent = TitleBar
-
-local TitleText = Instance.new("TextLabel")
-TitleText.Size = UDim2.new(1, -15, 1, 0)
-TitleText.Position = UDim2.new(0, 15, 0, 0)
-TitleText.BackgroundTransparency = 1
-TitleText.TextColor3 = Color3.fromRGB(0, 255, 170)
-TitleText.TextSize = 13
-TitleText.Font = Enum.Font.Code
-TitleText.Text = "⚡ THE HATCH [TELEPORT HUB]"
-TitleText.TextXAlignment = Enum.TextXAlignment.Left
-TitleText.Parent = TitleBar
-
-local function createButton(name, posY, color)
-    local btn = Instance.new("TextButton")
-    btn.Size = UDim2.new(0.9, 0, 0, 34)
-    btn.Position = UDim2.new(0.05, 0, 0, posY)
-    btn.BackgroundColor3 = color or Color3.fromRGB(35, 35, 48)
-    btn.TextColor3 = Color3.fromRGB(255, 255, 255)
-    btn.TextSize = 11
-    btn.Font = Enum.Font.Code
-    btn.Text = name
-    btn.Parent = MainFrame
-
-    local corner = Instance.new("UICorner")
-    corner.CornerRadius = UDim.new(0, 6)
-    corner.Parent = btn
-    return btn
-end
-
-local bTeleBoat = createButton("⛵ Tele to Boat", 52, Color3.fromRGB(40, 70, 100))
-local bTeleUGC  = createButton("🎁 Tele to UGC", 92, Color3.fromRGB(90, 50, 100))
-local bClose    = createButton("❌ Đóng Hub", 132, Color3.fromRGB(70, 25, 25))
-
-local statusLabel = Instance.new("TextLabel", MainFrame)
-statusLabel.Size = UDim2.new(0.9, 0, 0, 25)
-statusLabel.Position = UDim2.new(0.05, 0, 0, 145)
-statusLabel.BackgroundTransparency = 1
-statusLabel.TextColor3 = Color3.fromRGB(140, 140, 160)
-statusLabel.TextSize = 11
-statusLabel.Font = Enum.Font.Code
-statusLabel.Text = "Status: Ready..."
-
-local plr = game:GetService("Players").LocalPlayer
-
-bTeleBoat.MouseButton1Click:Connect(function()
-    pcall(function()
-        local char = plr.Character
-        local hrp = char and char:FindFirstChild("HumanoidRootPart")
-        local collider = workspace:FindFirstChild("FTUXCutscene") 
-            and workspace.FTUXCutscene:FindFirstChild("Surfer") 
-            and workspace.FTUXCutscene.Surfer:FindFirstChild("Collider")
-        
-        if hrp and collider and collider:IsA("BasePart") then
-            hrp.CFrame = collider.CFrame + Vector3.new(0, 3, 0)
-            statusLabel.Text = "Status: Teleported to Boat!"
-            statusLabel.TextColor3 = Color3.fromRGB(0, 255, 170)
-        else
-            statusLabel.Text = "Status: 'Collider' not found!"
-            statusLabel.TextColor3 = Color3.fromRGB(255, 80, 80)
-        end
-    end)
-end)
-
-bTeleUGC.MouseButton1Click:Connect(function()
-    pcall(function()
-        local char = plr.Character
-        local hrp = char and char:FindFirstChild("HumanoidRootPart")
-        local finaleUGC = workspace:FindFirstChild("FinaleController") 
-            and workspace.FinaleController:FindFirstChild("FinaleUGC")
-        
-        local targetPart = nil
-        if finaleUGC then
-            if finaleUGC:IsA("BasePart") then
-                targetPart = finaleUGC
-            elseif finaleUGC:IsA("Model") then
-                targetPart = finaleUGC.PrimaryPart or finaleUGC:FindFirstChildWhichIsA("BasePart", true)
-            else
-                targetPart = finaleUGC:FindFirstChildWhichIsA("BasePart", true)
-            end
-        end
-        
-        if hrp and targetPart and targetPart:IsA("BasePart") then
-            hrp.CFrame = targetPart.CFrame + Vector3.new(0, 3, 0)
-            statusLabel.Text = "Status: Teleported to UGC!"
-            statusLabel.TextColor3 = Color3.fromRGB(255, 170, 0)
-        else
-            statusLabel.Text = "Status: 'FinaleUGC' not found!"
-            statusLabel.TextColor3 = Color3.fromRGB(255, 80, 80)
-        end
-    end)
-end)
-
-bClose.MouseButton1Click:Connect(function()
-    ScreenGui:Destroy()
-end)
-]])()</div>
-                <button class="copy-btn" onclick="copyCode('hatchCode')">📋 Copy Script</button>
-            </div>
-        </div>
-    </div>
+    <!-- AREA UNTUK MENEMPATKAN KARTU (CARD) DI SINI -->
 
 </div>
-
-<script>
-    function toggleScriptBox(boxId) {
-        var box = document.getElementById(boxId);
-        box.style.display = (box.style.display === "block") ? "none" : "block";
-    }
-
-    function copyCode(codeId) {
-        var code = document.getElementById(codeId).innerText;
-        navigator.clipboard.writeText(code).then(function() {
-            alert("Đã sao chép Script thành công!");
-        }).catch(function(err) {
-            alert("Lỗi khi copy: " + err);
-        });
-    }
-
-    function filterScripts() {
-        var input = document.getElementById("searchInput").value.toLowerCase().trim();
-        var cards = document.querySelectorAll(".card");
-        var visibleCount = 0;
-
-        cards.forEach(function(card) {
-            var titleText = card.querySelector(".card-title").innerText.toLowerCase();
-            var bannerText = card.querySelector("[class^='card-banner']").innerText.toLowerCase();
-            
-            if (titleText.includes(input) || bannerText.includes(input)) {
-                card.style.display = "block";
-                visibleCount++;
-            } else {
-                card.style.display = "none";
-            }
-        });
-
-        document.getElementById("scriptCount").innerText = visibleCount + " scripts available";
-    }
-
-    document.addEventListener("DOMContentLoaded", function() {
-        var searchInput = document.getElementById("searchInput");
-        if (searchInput) {
-            searchInput.addEventListener("keyup", filterScripts);
-        }
-    });
-</script>
 
 </body>
 </html>
