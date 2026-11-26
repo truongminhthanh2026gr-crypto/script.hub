@@ -138,6 +138,18 @@
             border: 1px solid #2a2a30;
             margin-bottom: 20px;
         }
+        .card-banner-timmyland {
+            width: 100%;
+            height: 140px;
+            background: linear-gradient(135deg, #1f2937, #4b5563);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+        }
         .card-banner-banana {
             width: 100%;
             height: 140px;
@@ -323,9 +335,25 @@
         <input type="text" id="searchInput" class="search-input" placeholder="Search scripts...">
         <button class="search-btn" onclick="filterScripts()">Search</button>
     </div>
-    <div class="script-count" id="scriptCount">8 scripts available</div>
+    <div class="script-count" id="scriptCount">9 scripts available</div>
 
-    <!-- CARD MỚI NHẤT (ĐƯA LÊN ĐẦU): MAIN STREET RP TYPE B -->
+    <!-- CARD MỚI NHẤT (ĐƯA LÊN ĐẦU): TIMMYLAND SCRIPT AUTO COLLECT KEYS -->
+    <div class="card">
+        <div class="card-banner-timmyland">🔑 TIMMYLAND SCRIPT</div>
+        <div class="card-content">
+            <div class="card-title">Timmyland script auto collect keys (Timmyland.lua)</div>
+            <div class="card-footer">
+                <span>New views</span>
+            </div>
+            <button class="get-script-btn" onclick="toggleScriptBox('timmylandScriptBox')">🔒 Get Script ➔</button>
+            <div class="script-box-container" id="timmylandScriptBox">
+                <div class="code-box" id="timmylandCode">loadstring(game:HttpGet("https://raw.githubusercontent.com/truongminhthanh2026gr-crypto/script.hub/main/Timmyland.lua"))()</div>
+                <button class="copy-btn" onclick="copyCode('timmylandCode')">📋 Copy Script</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CARD MAIN STREET RP TYPE B -->
     <div class="card">
         <div class="card-banner-mainstreet-b">🏙️ MAIN STREET RP (TYPE B)</div>
         <div class="card-content">
